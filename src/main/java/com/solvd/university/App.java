@@ -2,6 +2,7 @@ package com.solvd.university;
 
 import com.solvd.university.courses.Subject;
 import com.solvd.university.databases.TeachersList;
+import com.solvd.university.lookforwords.LookFor;
 import com.solvd.university.persons.Student;
 import com.solvd.university.persons.Teacher;
 import com.solvd.university.courses.MenuSubjects;
@@ -52,6 +53,10 @@ public class App {
         
         maria.listSubjects();
 
+
+        //article
+        LookFor search = new LookFor();
+        search.search();
 
 
 

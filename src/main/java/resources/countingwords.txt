@@ -10,3 +10,7 @@ As				1
 free				2
 way				2
 9				1
+US				2
+series				1
+way				2
+and				8
