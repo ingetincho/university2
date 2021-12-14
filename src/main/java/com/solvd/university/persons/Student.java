@@ -51,6 +51,17 @@ public class Student extends Person{
         return subjetsList;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof Subject && this.subjetsList.equals(obj);
+    }
+
+    @Override
+    public int hashCode() {
+        return this.subjetsList.hashCode();
+    }
+
+        
 
 
     

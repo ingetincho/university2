@@ -1,7 +1,5 @@
 package com.solvd.university.courses;
 
-
-
 public class Subject implements Grades {
     private String name;
     private int idSubject;
@@ -18,6 +16,10 @@ public class Subject implements Grades {
         this.idSubject = idSubject;
         this.totalHours = totalHours;
         this.state = false;
+    }
+
+    public Subject(String line) {
+        this.name = line;
     }
 
     @Override
@@ -54,6 +56,6 @@ public class Subject implements Grades {
 
     @Override
     public String toString() {
-        return "Subject [ idSubject=" + idSubject + ", name=" + name + ", totalHours=" + totalHours + "]";
+        return this.name;
     }
 }
