@@ -5,6 +5,7 @@ import com.solvd.university.databases.TeachersList;
 import com.solvd.university.lookforwords.LookFor;
 import com.solvd.university.persons.Student;
 import com.solvd.university.persons.Teacher;
+import com.solvd.university.threads.MyCustomThread;
 import com.solvd.university.courses.MenuSubjects;
 
 import org.apache.log4j.BasicConfigurator;
@@ -54,10 +55,21 @@ public class App {
         
         maria.listSubjects();
 
+        
+        MyCustomThread thread1 = new MyCustomThread();
+        MyCustomThread thread2 = new MyCustomThread();
+        MyCustomThread thread3 = new MyCustomThread();
+        MyCustomThread thread4 = new MyCustomThread();
+        MyCustomThread thread5 = new MyCustomThread();
 
-        //article
-        //LookFor search = new LookFor();
-       // search.search();
+        thread1.start();
+        thread2.start();
+        thread3.start();
+        thread4.start();
+        thread5.start();
+ 
+        LookFor search = new LookFor();
+        search.search();
 
 
 
