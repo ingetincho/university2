@@ -50,13 +50,14 @@ public class App {
         juan.listSubjects();
 
         maria.addSubject(new Subject("Java Level 1", 142, 210));
+        maria.addSubject(new Subject("Java Level 1", 142, 210));
         
         maria.listSubjects();
 
 
         //article
-        LookFor search = new LookFor();
-        search.search();
+        //LookFor search = new LookFor();
+       // search.search();
 
 
 
