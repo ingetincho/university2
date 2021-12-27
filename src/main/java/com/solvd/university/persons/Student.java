@@ -3,35 +3,41 @@ package com.solvd.university.persons;
 import java.util.Date;
 import java.util.LinkedHashSet;
 import com.solvd.university.courses.Subject;
+import com.solvd.university.enums.StudentConcept;
 
-public class Student extends Person{
+import org.apache.log4j.Logger;
+
+public class Student extends Person {
+    private static final Logger log = Logger.getLogger(Student.class);
+
     private int idStudent;
     private static int idStudentCounter;
     private Date date;
     LinkedHashSet<Subject> subjetsList = new LinkedHashSet<>();
-    
+    private StudentConcept concept;
 
-    public Student(){
+    public Student() {
         this.idStudent = ++Student.idStudentCounter;
     }
 
-    public Student(String name,String surname){
+    public Student(String name, String surname) {
         super(name, surname);
         this.idStudent = ++Student.idStudentCounter;
     }
 
-    public void addSubject(Subject subject){
+    public void addSubject(Subject subject) {
         subjetsList.add(subject);
     }
 
     public void listSubjects(){
-        for(Subject s:this.subjetsList){
-            System.out.println(s);
+        
+        this.subjetsList.forEach((x)->{
+            log.info(x);
+        });
+        
         }
-    }
 
-
-    public void setStudentName(String name){
+    public void setStudentName(String name) {
         super.setName(name);
     }
 
@@ -51,6 +57,17 @@ public class Student extends Person{
         return subjetsList;
     }
 
+    
+
+
+    public StudentConcept getConcept() {
+        return concept;
+    }
+
+    public void setConcept(StudentConcept concept) {
+        this.concept = concept;
+    }
+
     @Override
     public boolean equals(Object obj) {
         return obj instanceof Subject && this.subjetsList.equals(obj);
@@ -60,11 +77,5 @@ public class Student extends Person{
     public int hashCode() {
         return this.subjetsList.hashCode();
     }
-
-        
-
-
-    
-
 
 }

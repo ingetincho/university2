@@ -2,10 +2,14 @@ package com.solvd.university;
 
 import com.solvd.university.courses.Subject;
 import com.solvd.university.databases.TeachersList;
+import com.solvd.university.enums.Days;
+import com.solvd.university.enums.StudentConcept;
 import com.solvd.university.lookforwords.LookFor;
 import com.solvd.university.persons.Student;
 import com.solvd.university.persons.Teacher;
+import com.solvd.university.roomschedule.RoomSchedule;
 import com.solvd.university.threads.MyCustomThread;
+import com.solvd.university.classrooms.Classroom;
 import com.solvd.university.courses.MenuSubjects;
 
 import org.apache.log4j.BasicConfigurator;
@@ -33,8 +37,15 @@ public class App {
         log.info("List of Teachers");
         teachersList.listOfTeachers();    
 
+        Classroom one = new Classroom();
+        
+        one.setNumber(1);
+
         Student juan = new Student("Juan", "Leg");
         Student maria = new Student("Maria", "Kissner");
+
+        maria.setConcept(StudentConcept.EXCELENT);
+        juan.setConcept(StudentConcept.AVERAGE);
 
         log.info(juan.getIdStudent());
         log.info(maria.getIdStudent());
@@ -72,6 +83,10 @@ public class App {
         search.search();
 
 
+        RoomSchedule physicsSchedule = new RoomSchedule();
+
+        physicsSchedule.setClassroomNumber(one);
+        physicsSchedule.setDay(Days.MONDAY);
 
 
     }

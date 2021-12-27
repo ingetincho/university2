@@ -2,6 +2,7 @@ package com.solvd.university.user;
 
 import java.security.cert.X509CRLEntry;
 import java.util.List;
+import java.util.function.Consumer;
 
 import com.solvd.university.courses.Subject;
 import com.solvd.university.databases.DataAccessImp;
@@ -56,10 +57,9 @@ public class GenericsImp implements IGenerics{
     public void list() {
         try {
             List<Subject> subject = this.data.list(SUBJECTS_FILENAME);
-            for(Subject x:subject){
-                log.info("Subject: "+ x);
-            }
-
+       
+            subject.forEach((n)-> {log.info(n);});
+            
         } catch (DataAccessEx e) {
             e.printStackTrace();
             log.info("Data Access Error");
