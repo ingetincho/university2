@@ -10,7 +10,6 @@ public class TeachersList extends Person {
     
     private static final Logger log = Logger.getLogger(TeachersList.class);
 
-
     private List<Person> teachers = new ArrayList<>();
 
     public TeachersList(){
@@ -22,9 +21,9 @@ public class TeachersList extends Person {
     }
 
     public void listOfTeachers(){
-        for(Person someone :this.teachers){
-            log.info(someone);
-        }
+        
+        this.teachers.forEach((x)-> {log.info(x);});
+        
     }
     
 

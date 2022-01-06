@@ -7,6 +7,11 @@ public class Classroom {
     private RoomSchedule roomclasSchedule;
     private static final int MAX_STUDENTS = 10;
 
+
+    public Classroom(){
+        
+    }
+
     public Classroom(int number) {
         this.number = number;
     }
