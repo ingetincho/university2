@@ -9,13 +9,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-
-import javax.annotation.processing.FilerException;
 
 import com.solvd.university.courses.Subject;
 import com.solvd.university.exceptions.*;
-import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 
 public class DataAccessImp implements IDataAccess {
@@ -24,13 +20,13 @@ public class DataAccessImp implements IDataAccess {
 
 
     @Override
-    public boolean ifexist(String resourceName) throws DataAccessEx {
+    public boolean ifexist(String resourceName){
         File file = new File (resourceName);
         return file.exists();
     }
 
     @Override
-    public List<Subject> list(String resourceName) throws ReadDataEx {
+    public List<Subject> list(String resourceName) {
         List<Subject> subjects = new ArrayList<>();
 
         try {
@@ -59,7 +55,7 @@ public class DataAccessImp implements IDataAccess {
     }
 
     @Override
-    public void write(Subject subject, String resourceName, boolean append) throws WriteDataEx {
+    public void write(Subject subject, String resourceName, boolean append) {
         File file = new File(resourceName);
         try {
             PrintWriter output = new PrintWriter(new FileWriter(file, append));
@@ -75,7 +71,7 @@ public class DataAccessImp implements IDataAccess {
     }
     
     @Override
-    public String search(String resouceName, String search) throws ReadDataEx {
+    public String search(String resouceName, String search) {
         File file = new File(resouceName);
         String outcome=null;
         
@@ -105,7 +101,7 @@ public class DataAccessImp implements IDataAccess {
     }
 
     @Override
-    public void create(String resourceName) throws DataAccessEx {
+    public void create(String resourceName){
         File file = new File(resourceName);
         try {
             PrintWriter output = new PrintWriter(new FileWriter(file));
@@ -118,7 +114,7 @@ public class DataAccessImp implements IDataAccess {
     }
 
     @Override
-    public void erase(String resourceName) throws DataAccessEx {
+    public void erase(String resourceName) {
         
         File file = new File(resourceName);
 

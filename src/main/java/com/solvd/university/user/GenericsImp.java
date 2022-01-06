@@ -1,8 +1,6 @@
 package com.solvd.university.user;
 
-import java.security.cert.X509CRLEntry;
 import java.util.List;
-import java.util.function.Consumer;
 
 import com.solvd.university.courses.Subject;
 import com.solvd.university.databases.DataAccessImp;
@@ -22,6 +20,7 @@ public class GenericsImp implements IGenerics{
         this.data = new DataAccessImp();
     }
 
+    private static final String ERROR = "can't Access Data: error";
 
     @Override
     public void add(String nombre) {
@@ -32,7 +31,7 @@ public class GenericsImp implements IGenerics{
             data.write(subject, SUBJECTS_FILENAME, append);
         } catch (DataAccessEx e) {
             e.printStackTrace();
-            log.info("Data Access Error");
+            log.info(ERROR);
         }
     }
 
@@ -48,7 +47,7 @@ public class GenericsImp implements IGenerics{
              
         } catch (DataAccessEx e) {
             e.printStackTrace();
-            log.info("Data Access Error");
+            log.info(ERROR);
         }
         
     }
@@ -62,7 +61,7 @@ public class GenericsImp implements IGenerics{
             
         } catch (DataAccessEx e) {
             e.printStackTrace();
-            log.info("Data Access Error");
+            log.info(ERROR);
         }
         
     }
@@ -80,6 +79,5 @@ public class GenericsImp implements IGenerics{
 
         
     }
-
-    
+   
 }

@@ -17,7 +17,7 @@ public class LookFor {
 
         Scanner console = new Scanner(System.in);
 
-        File destinationFile = new File("src\\main\\java\\resources\\countingwords.txt");
+        File destinationFile = new File("src\\main\\resources\\countingwords.txt");
       
         try {
             FileUtils.touch(destinationFile);
@@ -29,10 +29,10 @@ public class LookFor {
         String charsets = "UTF-8";
         String text = "";
         File file = 
-        new File("src\\main\\java\\resources\\article.txt");
+        new File("src\\main\\resources\\article.txt");
         String content;
         int i;
-           
+        
         try{
             
             content = FileUtils.readFileToString(file, charsets);

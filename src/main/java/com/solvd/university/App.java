@@ -1,6 +1,8 @@
 package com.solvd.university;
 
 import com.solvd.university.courses.Subject;
+import com.solvd.university.databases.Connection;
+import com.solvd.university.databases.ConnectionPool;
 import com.solvd.university.databases.TeachersList;
 import com.solvd.university.enums.Days;
 import com.solvd.university.enums.StudentConcept;
@@ -9,6 +11,9 @@ import com.solvd.university.persons.Student;
 import com.solvd.university.persons.Teacher;
 import com.solvd.university.roomschedule.RoomSchedule;
 import com.solvd.university.threads.MyCustomThread;
+
+import java.util.concurrent.CompletableFuture;
+
 import com.solvd.university.classrooms.Classroom;
 import com.solvd.university.courses.MenuSubjects;
 
@@ -26,7 +31,7 @@ public class App {
 
         MenuSubjects menu = new MenuSubjects();
         
-        menu.subjectsMenu();
+        //menu.subjectsMenu();
 
         TeachersList teachersList = new TeachersList();
 
@@ -46,6 +51,8 @@ public class App {
 
         maria.setConcept(StudentConcept.EXCELENT);
         juan.setConcept(StudentConcept.AVERAGE);
+
+        
 
         log.info(juan.getIdStudent());
         log.info(maria.getIdStudent());
@@ -79,14 +86,64 @@ public class App {
         thread4.start();
         thread5.start();
  
-        LookFor search = new LookFor();
-        search.search();
+        //LookFor search = new LookFor();
+        //search.search();
 
 
         RoomSchedule physicsSchedule = new RoomSchedule();
 
         physicsSchedule.setClassroomNumber(one);
         physicsSchedule.setDay(Days.MONDAY);
+
+        ConnectionPool cp = ConnectionPool.getInstance();
+
+        CompletableFuture<Void> future1 = CompletableFuture
+                .supplyAsync(cp::getConnection).thenAccept(Connection::run);
+
+
+        CompletableFuture<Void> future2 = CompletableFuture.supplyAsync(cp::getConnection).thenAccept(Connection::run);
+
+        CompletableFuture<Void> future3 = CompletableFuture
+                .supplyAsync(cp::getConnection).thenAccept(Connection::run);
+
+        CompletableFuture<Void> future4 = CompletableFuture
+                .supplyAsync(cp::getConnection).thenAccept(Connection::run);
+
+        CompletableFuture<Void> future5 = CompletableFuture
+                .supplyAsync(cp::getConnection).thenAccept(Connection::run);
+
+        CompletableFuture<Void> future6 = CompletableFuture
+                .supplyAsync(cp::getConnection).thenAccept(Connection::run);
+
+        if (future1.isDone()) {
+            Connection conn = cp.getConnection();
+            cp.returnConnection(conn);
+        }
+        
+        if (future2.isDone()) {
+            Connection conn = cp.getConnection();
+            cp.returnConnection(conn);
+        }
+        
+        if (future3.isDone()) {
+            Connection conn = cp.getConnection();
+            cp.returnConnection(conn);
+        }
+        
+        if (future4.isDone()) {
+            Connection conn = cp.getConnection();
+            cp.returnConnection(conn);
+        }
+        
+        if (future5.isDone()) {
+            Connection conn = cp.getConnection();
+            cp.returnConnection(conn);
+        }
+        
+        if (future6.isDone()) {
+            Connection conn = cp.getConnection();
+            cp.returnConnection(conn);
+        }
 
 
     }
