@@ -1,14 +1,12 @@
 package com.solvd.university.persons;
 
 public abstract class Person {
-    protected String name;
-    protected String surname;
+    String name;
+    String surname;
     protected int age;
     protected String gender;
     protected boolean isActive;
     
-
-
     public Person(){
 
     }
@@ -21,10 +19,11 @@ public abstract class Person {
         this.isActive = isActive;
     }
     
-    public Person(String name,String surname) {
+    Person(String name,String surname) {
         this.name = name;
         this.surname = surname;
     }
+    
     public String getName() {
         return name;
     }

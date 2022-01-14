@@ -6,6 +6,7 @@ import com.solvd.university.databases.ConnectionPool;
 import com.solvd.university.databases.TeachersList;
 import com.solvd.university.enums.Days;
 import com.solvd.university.enums.StudentConcept;
+import com.solvd.university.generics.PersonG;
 import com.solvd.university.lookforwords.LookFor;
 import com.solvd.university.persons.Student;
 import com.solvd.university.persons.Teacher;
@@ -32,6 +33,16 @@ public class App {
         MenuSubjects menu = new MenuSubjects();
         
         //menu.subjectsMenu();
+
+        PersonG<Teacher>  Math1 = new PersonG<>();
+        PersonG<Student> JohnLewis = new PersonG<>();
+
+        
+
+        /*
+            this is a valid comment
+        */
+
 
         TeachersList teachersList = new TeachersList();
 

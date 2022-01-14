@@ -7,6 +7,11 @@ public class CalificationG<T> {
     public CalificationG(T calificationForm) {
         this.calificationForm = calificationForm;
     }
+
+    public CalificationG() {
+    }
+
+    
     
     
 
